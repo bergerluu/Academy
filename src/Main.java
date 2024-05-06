@@ -17,10 +17,10 @@ public class Main {
         int opcao;
         do {
             System.out.println("\n=== Menu ===");
-            System.out.println("1- Adicionar Instrutor");
-            System.out.println("2- Listar Equipamentos");
+            System.out.println("1- Adicionar Aluno");
+            System.out.println("2- Adicionar Instrutor");
             System.out.println("3- Adicionar Treino");
-            System.out.println("4- Adicionar Aluno");
+            System.out.println("4- Listar Equipamentos");
             System.out.println("5- Remover Equipamento de Treino");
             System.out.println("6- Pesquisar Equipamento em Treino");
             System.out.println("7- Listar todos os Treinos");
@@ -28,18 +28,19 @@ public class Main {
             System.out.println("9- Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
+            scanner.nextLine();
 
             switch (opcao) {
                 case 1:
+                    System.out.print("Digite o nome do aluno: ");
+                    String nomeAluno = scanner.nextLine();
+                    alunos.add(new Aluno(nomeAluno));
+                    System.out.println("Aluno cadastrado");
+                    break;
+                case 2:
                     System.out.print("Digite o nome do instrutor: ");
                     String nomeInstrutor = scanner.nextLine();
                     instrutores.add(new Instrutor(nomeInstrutor));
-                    break;
-                case 2:
-                    System.out.println("LISTA DE EQUIPAMENTOS:\n ");
-                    for (Equipamento e : FileManager.listaEquipaqmentos()) {
-                        System.out.println(e.getNomeEquipamento());
-                    }
                     break;
                 case 3:
                     if (instrutores.isEmpty()) {
@@ -86,10 +87,10 @@ public class Main {
                     System.out.println(dados);
                     break;
                 case 4:
-                    System.out.print("Digite o nome do aluno: ");
-                    String nomeAluno = scanner.nextLine();
-                    alunos.add(new Aluno(nomeAluno));
-                    System.out.println("Aluno cadastrado");
+                    System.out.println("LISTA DE EQUIPAMENTOS:\n ");
+                    for (Equipamento e : FileManager.listaEquipaqmentos()) {
+                    System.out.println(e.getNomeEquipamento());
+                    }
                     break;
                 case 5:
                     List<Equipamento> equipamentos = FileManager.listaEquipaqmentos();
@@ -130,12 +131,12 @@ public class Main {
                     // Mostra o resultado da busca
                     if (encontrado) {
                         System.out.println("\nEquipamento encontrado na lista.");
+                        System.out.println("\nLista de equipamentos original:");
+                        for (Equipamento equipamento : equips) {
+                            System.out.println(equipamento.getNomeEquipamento());
+                        }
                     } else {
                         System.out.println("\nEquipamento não encontrado na lista.");
-                    }
-                    System.out.println("\nLista de equipamentos original:");
-                    for (Equipamento equipamento : equips) {
-                        System.out.println(equipamento.getNomeEquipamento());
                     }
                     break;
                 case 7:
@@ -145,7 +146,6 @@ public class Main {
                         listarTreinos(treino);
                     }
                     break;
-                //erro 4
                 case 8:
                     ArrayList<String> Equips = new ArrayList<String>();
                     Equips.add("Supino inclinado");
