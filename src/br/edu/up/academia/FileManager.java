@@ -18,7 +18,7 @@ public class FileManager {
     public void salvarDados(List<String> dados){
         try (FileWriter writer = new FileWriter(fileName)){
             for(String linha: dados){
-                writer.write(linha + "\n");
+                writer.write(linha);
             }
         } catch (IOException e){
             e.printStackTrace();

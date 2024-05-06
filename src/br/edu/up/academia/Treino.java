@@ -7,18 +7,19 @@ import java.util.List;
 public class Treino {
     private String nomeTreino;
     private Instrutor instrutor;
+    private Aluno aluno;
 
 
     private static List<Equipamento> equipamentos;
 
 
-
-    public Treino(String nome, Instrutor instrutor) {
-        this.nomeTreino = nome;
+    public Treino(String nomeTreino, Instrutor instrutor, Aluno aluno) {
+        this.nomeTreino = nomeTreino;
         this.instrutor = instrutor;
+        this.aluno = aluno;
         this.equipamentos = new ArrayList<>();
-
     }
+
     public static void listarTreinos(Treino treino) {
         System.out.println("Nome do treino: " + treino.getNome());
         System.out.println("Instrutor: " + treino.getInstrutor().getNome());
@@ -39,18 +40,22 @@ public class Treino {
     }
 
     public String getNome() {
+
         return nomeTreino;
     }
 
     public void setNome(String nome) {
+
         this.nomeTreino = nome;
     }
 
     public Instrutor getInstrutor() {
+
         return instrutor;
     }
 
     public void setInstrutor(Instrutor instrutor) {
+
         this.instrutor = instrutor;
     }
 
