@@ -15,16 +15,24 @@ public class FileManager {
     public FileManager(String fileName) {
         this.fileName = fileName;
     }
+    /* Esse método recebe uma lista de strings, itera sobre cada uma delas,
+    e as escreve no arquivo filename
+      Se usa a funçao try para garantir que o "fileWriter" seja fechado
+     corretamente após o uso, e captura exceções caso ocorram problemas 
+     durante a escrita do arquivo */
     public void salvarDados(List<String> dados){
         try (FileWriter writer = new FileWriter(fileName)){
             for(String linha: dados){
                 writer.write(linha);
             }
-        } catch (IOException e){
+        } catch (IOException e){ // Captura exceções do tipo IOException, que é uma classe que representa exceções de entrada/saída.
+            /* printStackTrace é um método para imprimir informações sobre
+            a exceção que ocorreu, auxilia para identificar onde ocorreu 
+            os problemas */
             e.printStackTrace();
         }
     }
-
+    // Lista de equipamentos 
     public static List<Equipamento> listaEquipaqmentos() {
         var equipamentos = new ArrayList<Equipamento>();
         equipamentos.add(new Equipamento("Supino inclinado"));//peito1
