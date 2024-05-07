@@ -52,7 +52,7 @@ public class Main {
                     List<Equipamento> eq = FileManager.listaEquipaqmentos();
                     String nomeTreino = "";
                     do {
-                        System.out.print("Escolha um treino: ");
+                        System.out.print("Digite o nome do treino: ");
                         // Valdiar a escolha do usuario
                         nomeTreino = scanner.nextLine();
                         break;
@@ -88,7 +88,6 @@ public class Main {
 
                     treinos.add(new Treino(nomeTreino, instrutorSelecionado, alunoSelecionado));
                     System.out.println("Treino adicionado com sucesso!");
-
 
                     String nomeAlunoTreino = alunoSelecionado.getNome();
                     String nomeInstrutorTreino = instrutorSelecionado.getNome();

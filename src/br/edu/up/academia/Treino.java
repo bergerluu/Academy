@@ -23,6 +23,10 @@ public class Treino {
     public static void listarTreinos(Treino treino) {
         System.out.println("Nome do treino: " + treino.getNome());
         System.out.println("Instrutor: " + treino.getInstrutor().getNome());
+        System.out.println("Nome do aluno: " + treino.getAluno().getNome());
+        for(Equipamento equipamentos : treino.getEquipamento()){
+            System.out.println("- " + treino.getEquipamento());
+        }
     }
     public static void listarEquipamentosOrdenados(Treino treino) {
         List<Equipamento> equipamentos = new ArrayList<>(treino.getEquipamento());
@@ -58,6 +62,10 @@ public class Treino {
 
         this.instrutor = instrutor;
     }
+    public Aluno getAluno(){
+        return aluno;
+    }
+
 
 
     public List<Equipamento> getEquipamento() {
