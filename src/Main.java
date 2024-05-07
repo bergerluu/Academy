@@ -36,7 +36,7 @@ public class Main {
                 case 1:
                     System.out.print("Digite o nome do instrutor: ");
                     String nomeInstrutor = scanner.nextLine();
-                    // Add o nome que o usuario digitou em uma lista "instrutores"
+                    // Add o nome que o usuario digitou na lista "instrutores"
                     instrutores.add(new Instrutor(nomeInstrutor));
                     break;
                 case 2:
