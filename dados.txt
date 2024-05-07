@@ -1,1 +1,1 @@
-Treino: peito, Aluno: luiz, Instrutor: jonas, Equipamento: Triceps na polia
+Treino: peito, Aluno: jonas, Instrutor: luiz, Equipamento: Triceps na polia

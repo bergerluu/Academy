@@ -36,57 +36,71 @@ public class Main {
                 case 1:
                     System.out.print("Digite o nome do instrutor: ");
                     String nomeInstrutor = scanner.nextLine();
+                    // Add o nome que o usuario digitou em uma lista "instrutores"
                     instrutores.add(new Instrutor(nomeInstrutor));
                     break;
                 case 2:
                     System.out.println("EQUIPAMENTOS NA LISTA: \n");
+                    // Adiciona uma variavel "e" do tipo Equipamento
                     for (Equipamento e : FileManager.listaEquipaqmentos()) {
+                        // Printa todos os equipamentos na lista utilizando o "getNomeEquipamento"
                         System.out.println(e.getNomeEquipamento());
                     }
                     break;
                 case 3:
+                    // Caso o usuario nao tenha adicionado nenhum instrutor, nao vai ser possivel adicionar um treino
                     if (instrutores.isEmpty()) {
                         System.out.println("É necessário ter pelo menos um instrutor cadastrado para adicionar um treino.");
                         break;
                     }
-                    List<Equipamento> eq = FileManager.listaEquipaqmentos();
+                    //Incializando a lista de equipamentos e variavel nomeTreino
                     String nomeTreino = "";
-                    do {
-                        System.out.print("Digite o nome do treino: ");
-                        // Valdiar a escolha do usuario
-                        nomeTreino = scanner.nextLine();
-                        break;
-                    } while (!eq.contains(nomeTreino));
 
+                    System.out.print("Digite o nome do treino: ");
+                    // Validar a escolha do usuario
+                     nomeTreino = scanner.nextLine();
+                    
                     System.out.println("Escolha um Aluno para o treino:");
+                    // Exibe uma lista para o usuario escolher qual aluno irá ser associado ao treino
                     for (int i = 0; i < alunos.size(); i++) {
                         System.out.println((i + 1) + ". " + alunos.get(i).getNome());
                     }
+                    // Lê qual opção o usuário escolheu
                     int indiceAluno = scanner.nextInt() - 1;
+                    /*Seleciona o aluno da posiçao "indiceAluno" e armazena na variavel abaixo
+                    Após essa linha ser executada, você pode acessar os dados associado a esse aluno específico */
                     Aluno alunoSelecionado = alunos.get(indiceAluno);
                     
                     System.out.println("Escolha um instrutor para o treino:");
+                      // Exibe uma lista para o usuario escolher qual instrutor irá ser associado ao treino
                     for (int i = 0; i < instrutores.size(); i++) {
                         System.out.println((i + 1) + ". " + instrutores.get(i).getNome());
                     }
+                     // Lê qual opção o usuário escolheu
                     int indiceInstrutor = scanner.nextInt() - 1;
+                     /*Seleciona o instrutor da posiçao "indiceInstrutor" e armazena na variavel abaixo
+                    Após essa linha ser executada, você pode acessar os dados associado a esse instrutor específico */
                     Instrutor instrutorSelecionado = instrutores.get(indiceInstrutor);
+                    // Cria um novo objeto Treino com os parametros fornecidos pelo usuário
                     Treino novoTreino = new Treino(nomeTreino, instrutorSelecionado, alunoSelecionado);
 
                     System.out.println("adicione um equipamento ao seu treino");
-                    List<Equipamento> listaEquipamentos = FileManager.listaEquipaqmentos();
-
-                    for (int i = 0; i < listaEquipamentos.size(); i++) {
+                    List<Equipamento> listaEquipamentos = FileManager.listaEquipaqmentos();                 
+                    // Cria uma lista enumerada dos equipamentos   
+                     for (int i = 0; i < listaEquipamentos.size(); i++) {
                         Equipamento e = listaEquipamentos.get(i);
                         System.out.println((i + 1) + ". " + e.getNomeEquipamento());
                     }
 
                     System.out.println("De 1 a " + listaEquipamentos.size() + " selecione qual equipamento deseja adicionar no seu treino: ");
+                    // Armazena o numero correspondende ao equipamento que o usuário escolheu
                     int indiceLista = scanner.nextInt();
+                    /*O "indiceLista - 1" é por caso das listas começarem no 0 e terminam no 11, mas para o usuário aparece do 1 ao 12
+                    A partir desse indice, obtemos qual equipamento foi selecionado pelo usuario e adicionamos a variavel "equipamentoSelecionado"*/
                     Equipamento equipamentoSelecionado = listaEquipamentos.get(indiceLista - 1);
                     System.out.println("O equipamento " + equipamentoSelecionado.getNomeEquipamento() + " foi adicionado ao treino " + nomeTreino + " .");
-
-                    treinos.add(new Treino(nomeTreino, instrutorSelecionado, alunoSelecionado));
+                    //Adiciona numa lista os parametros 
+                    
                     System.out.println("Treino adicionado com sucesso!");
 
                     String nomeAlunoTreino = alunoSelecionado.getNome();
