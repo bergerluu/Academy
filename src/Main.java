@@ -100,7 +100,7 @@ public class Main {
                     Equipamento equipamentoSelecionado = listaEquipamentos.get(indiceLista - 1);
                     System.out.println("O equipamento " + equipamentoSelecionado.getNomeEquipamento() + " foi adicionado ao treino " + nomeTreino + " .");
                     //Adiciona numa lista os parametros 
-                    treinos.add(new Treino(nomeTreino, instrutorSelecionado, alunoSelecionado);
+                    treinos.add(new Treino(nomeTreino, instrutorSelecionado, alunoSelecionado));
                     System.out.println("Treino adicionado com sucesso!");
 
                     String nomeAlunoTreino = alunoSelecionado.getNome();
