@@ -18,7 +18,7 @@ public class Main {
             System.out.println("\n=== Menu ===");
             System.out.println("1- Adicionar Instrutor");
             System.out.println("2- Listar Equipamentos");
-            System.out.println("3- Adicionar Treino");
+            System.out.println("3- Agendar um treino");
             System.out.println("4- Adicionar Aluno");
             System.out.println("5- Remover Equipamento de Treino");
             System.out.println("6- Pesquisar Equipamento em Treino");
@@ -57,6 +57,7 @@ public class Main {
                     }
                     //Incializando a lista de equipamentos e variavel nomeTreino
                     String nomeTreino = "";
+                    Integer horarioEscolhido = 0;
 
                     System.out.print("Digite o nome do treino: ");
                     // Validar a escolha do usuario
@@ -83,8 +84,11 @@ public class Main {
                      /*Seleciona o instrutor da posiçao "indiceInstrutor" e armazena na variavel abaixo
                     Após essa linha ser executada, você pode acessar os dados associado a esse instrutor específico */
                     Instrutor instrutorSelecionado = instrutores.get(indiceInstrutor);
+
+                    System.out.println("Digite um horario que deseja treinar: ");
+                    horarioEscolhido = scanner.nextInt();
                     // Cria um novo objeto Treino com os parametros fornecidos pelo usuário
-                    Treino novoTreino = new Treino(nomeTreino, instrutorSelecionado, alunoSelecionado);
+                    Treino novoTreino = new Treino(nomeTreino, instrutorSelecionado, alunoSelecionado, horarioEscolhido);
 
                     System.out.println("adicione um equipamento ao seu treino");
                     List<Equipamento> listaEquipamentos = FileManager.listaEquipaqmentos();                 
@@ -102,14 +106,14 @@ public class Main {
                     Equipamento equipamentoSelecionado = listaEquipamentos.get(indiceLista - 1);
                     System.out.println("O equipamento " + equipamentoSelecionado.getNomeEquipamento() + " foi adicionado ao treino " + nomeTreino + " .");
                     //Adiciona numa lista os parametros 
-                    treinos.add(new Treino(nomeTreino, instrutorSelecionado, alunoSelecionado));
+                    treinos.add(new Treino(nomeTreino, instrutorSelecionado, alunoSelecionado, horarioEscolhido));
                     System.out.println("Treino adicionado com sucesso!");
-
+                    
                     String nomeAlunoTreino = alunoSelecionado.getNome();
                     String nomeInstrutorTreino = instrutorSelecionado.getNome();
                     FileManager fileManager = new FileManager("dados.txt");
                     List<String> dados = new ArrayList<>();
-                    dados.add("Treino: " + novoTreino.getNome() + ", Aluno: " + nomeAlunoTreino + ", Instrutor: " + nomeInstrutorTreino + ", Equipamento: " + equipamentoSelecionado.getNomeEquipamento());
+                    dados.add("Treino: " + novoTreino.getNome() + ", Aluno: " + nomeAlunoTreino + ", Instrutor: " + nomeInstrutorTreino + ", Equipamento: " + equipamentoSelecionado.getNomeEquipamento() + ", Horário de treino: " + novoTreino.getHorario() + " horas");
                     fileManager.salvarDados(dados);
                     System.out.println(dados);
                     break;

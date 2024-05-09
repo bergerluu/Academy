@@ -1,1 +1,1 @@
-Treino: peito, Aluno: luiz, Instrutor: luiz, Equipamento: Crossover
+Treino: peito, Aluno: jonas, Instrutor: luiz, Equipamento: Desenvolvimento de ombro, Horário de treino: 13horas

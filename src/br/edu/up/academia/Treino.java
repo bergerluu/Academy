@@ -8,22 +8,24 @@ public class Treino {
     private String nomeTreino;
     private Instrutor instrutor;
     private Aluno aluno;
+    private Integer horario;
 
 
     private static List<Equipamento> equipamentos;
 
 
-    public Treino(String nomeTreino, Instrutor instrutor, Aluno aluno) {
+    public Treino(String nomeTreino, Instrutor instrutor, Aluno aluno, Integer horario) {
         this.nomeTreino = nomeTreino;
         this.instrutor = instrutor;
         this.aluno = aluno;
-        this.equipamentos = new ArrayList<>();
+        this.horario = horario;
     }
     // Printa para o usuario o "Nome do treino, do Instrutor e do Aluno"
     public static void listarTreinos(Treino treino) {
         System.out.println("Nome do treino: " + treino.getNome());
         System.out.println("Instrutor: " + treino.getInstrutor().getNome());
         System.out.println("Nome do aluno: " + treino.getAluno().getNome());
+        System.out.println("Horario escolhido: " + treino.getHorario());
     }
     public static void listarEquipamentosOrdenados(Treino treino) {
         // Cria uma nova lista de equipamentos chamada "equipamentos", inicializando-a com os equipamentos do treino
@@ -76,5 +78,8 @@ public class Treino {
     public void setEquipamento(List<Equipamento> equipamento) {
         this.equipamentos = equipamento;
     }
+    public Integer getHorario() {
 
+        return horario;
+    }
 }
