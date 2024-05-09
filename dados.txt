@@ -1,1 +1,1 @@
-Treino: costas, Aluno: roberto, Instrutor: thiago, Equipamento: Desenvolvimento de ombro, Horário de treino: 18 horas
+Treino: peito, Aluno: jonas, Instrutor: luiz, Equipamento: Triceps na polia, Horário de treino: 15:00 horas

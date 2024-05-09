@@ -113,7 +113,7 @@ public class Main {
                     String nomeInstrutorTreino = instrutorSelecionado.getNome();
                     FileManager fileManager = new FileManager("dados.txt");
                     List<String> dados = new ArrayList<>();
-                    dados.add("Treino: " + novoTreino.getNome() + ", Aluno: " + nomeAlunoTreino + ", Instrutor: " + nomeInstrutorTreino + ", Equipamento: " + equipamentoSelecionado.getNomeEquipamento() + ", Horário de treino: " + novoTreino.getHorario() + " horas");
+                    dados.add("Treino: " + novoTreino.getNome() + ", Aluno: " + nomeAlunoTreino + ", Instrutor: " + nomeInstrutorTreino + ", Equipamento: " + equipamentoSelecionado.getNomeEquipamento() + ", Horário de treino: " + novoTreino.getHorario() + ":00 horas");
                     fileManager.salvarDados(dados);
                     System.out.println(dados);
                     break;

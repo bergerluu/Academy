@@ -9,8 +9,6 @@ public class Treino {
     private Instrutor instrutor;
     private Aluno aluno;
     private Integer horario;
-
-
     private static List<Equipamento> equipamentos;
 
 
