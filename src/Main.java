@@ -184,12 +184,17 @@ public class Main {
                     }
                     break;
                 case 7:
+                    if (treinos.isEmpty()) {
+                        System.out.println("Lista de treino vazia, adicione um treino!");
+                        break;
+                    }
                     // Listar todos os Treinos
                     System.out.println("Lista de todos os treinos:");
                     // Puxa todos os itens armazenados da lista "treinos"
                     for (Treino treino : treinos) {
                         // Printa com nome do treino, instrutor e aluno
                         listarTreinos(treino); // Obs: mexer para aparecer equipamento junto
+                        System.out.println("==============");
                     }
                     break;
                 case 8:

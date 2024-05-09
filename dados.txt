@@ -1,1 +1,1 @@
-Treino: peito, Aluno: jonas, Instrutor: luiz, Equipamento: Desenvolvimento de ombro, Horário de treino: 13horas
+Treino: costas, Aluno: roberto, Instrutor: thiago, Equipamento: Desenvolvimento de ombro, Horário de treino: 18 horas

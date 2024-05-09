@@ -23,7 +23,7 @@ public class FileManager {
     public void salvarDados(List<String> dados){
         try (FileWriter writer = new FileWriter(fileName)){
             for(String linha: dados){
-                writer.write(linha);
+                writer.write(linha + "\n");
             }
         } catch (IOException e){ // Captura exceções do tipo IOException, que é uma classe que representa exceções de entrada/saída.
             /* printStackTrace é um método para imprimir informações sobre
